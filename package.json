@@ -1,0 +1,25 @@
+{
+  "name": "auto-splitser",
+  "version": "1.0.0",
+  "description": "Puppeteer script to automate adding transactions to Splitser",
+  "main": "index.sh",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thomas-abraham13/auto-splitser.git"
+  },
+  "keywords": [
+    "puppeteer"
+  ],
+  "author": "Thomas Abraham",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thomas-abraham13/auto-splitser/issues"
+  },
+  "homepage": "https://github.com/thomas-abraham13/auto-splitser#readme",
+  "dependencies": {
+    "puppeteer": "^22.1.0"
+  }
+}
