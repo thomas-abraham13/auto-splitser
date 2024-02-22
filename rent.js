@@ -59,8 +59,13 @@ const puppeteer = require('puppeteer');
 
     // Create Rent Entry
     await page.type('#transaction-calculator','2100', {delay: 100}); // Enter Rent Amount
-    const payerDropdown = '#transaction-member-dropdown > select'; // Selector for Payer Dropdown
-    await payerDropdown.select('#transaction-member-dropdown > select > option:nth-child(4)'); // Select Thomas Abraham as Payer
+
+    // const payerDropdown = '#transaction-member-dropdown > select'; // Selector for Payer Dropdown
+    await page.select('.WMemberDropdown__SelectContainer-sc-1atdj3f-2', 'b8cc017f-70e3-4bee-bb90-a08acde56637');
+    // await payerDropdown.select('#transaction-member-dropdown > select > option:nth-child(4)'); // Select Thomas Abraham as Payer
+    // const dd = '';
+    // const ta = '';
+
     await page.type('#transaction-what-for', 'Rent for the Month', {delay: 100}); // Enter Description
     const splitButton = '#__next > div.content-app > div.CreateUpdate__FullHeight-sc-1qhn6my-0.cjECzb > div.Page__BackgroundContainer-sc-7q8ic7-0.egZtgT > div > div.Participants__ParticipantsContainer-sc-az6kve-4.cVsIox > div.Participants__TitleContainer-sc-az6kve-0.ceWbIg > div.Participants__DesktopVisibleContainer-sc-az6kve-6.dogmGD > div > button > div.WButton__CustomContainer-sc-1o64yp6-0.idKCuO'; // Selector for Split Equally Button
     await page.click(splitButton);
@@ -68,7 +73,8 @@ const puppeteer = require('puppeteer');
     await page.click(rentBotRemove);
     const doneButton = '#__next > div.content-app > div.CreateUpdate__FullHeight-sc-1qhn6my-0.cjECzb > div.CreateUpdate__ActionContainer-sc-1qhn6my-2.hREKlw > div.WButton__ButtonContainer-sc-1o64yp6-2.fhcjlX.CreateUpdate__WCustomDoneButton-sc-1qhn6my-5.fOAQnQ > button > div.WButton__CustomContainer-sc-1o64yp6-0.idKCuO'; // Selector for Done Button
     await page.click(doneButton);
-    await page.waitForNavigation();
+    await delay(2000);
+    // await page.waitForNavigation();
     console.log("Created Entry for Rent : SUCCESS");
 
     await browser.close();
