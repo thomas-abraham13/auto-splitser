@@ -5,7 +5,7 @@ const puppeteer = require('puppeteer');
 (async () => {
     // Launch the browser and open a new blank page
     console.clear();
-    const browser = await puppeteer.launch({ headless: 'true', args: ['--start-maximized','--headless']});
+    const browser = await puppeteer.launch({ headless: false, args: ['--start-maximized','--incognito']});
     const page = await browser.newPage();
     console.log(await browser.userAgent());
 
@@ -17,17 +17,17 @@ const puppeteer = require('puppeteer');
     };
 
     // Navigate the page to a URL
-    await page.goto(`https://splitser.com/`, { waitUntil: 'networkidle0' });
+    await page.goto(`https://app.splitser.com/lists`, { waitUntil: 'networkidle0' });
     console.log("Navigation to splitser.com : SUCCESS");
 
     // Set screen size
     await page.setViewport({width: 1080, height: 1024});
 
     // Navigate to Login Page
-    const loginButton = 'body > div > header > div.row > div > nav > ul > li:nth-child(3) > a'; // Selector for Login Button
-    await page.click(loginButton);
-    await page.waitForNavigation();
-    console.log("Navigate to Login Page : SUCCESS");
+    // const loginButton = 'body > div > header > div.row > div > nav > ul > li:nth-child(3) > a'; // Selector for Login Button
+    // await page.click(loginButton);
+    // await page.waitForNavigation();
+    // console.log("Navigate to Login Page : SUCCESS");
 
     // Login to Spliser
     await delay(2000);
@@ -40,20 +40,22 @@ const puppeteer = require('puppeteer');
     const loginAction = '#login-form-submit > button > div.WButton__CustomContainer-sc-1o64yp6-0.idKCuO'; // Selector for Login Button
     await page.click(loginAction);
     await page.waitForNavigation();
-    // console.log(location.href);
     console.log("Bot Logged In : SUCCESS");
+    await delay(2000);
 
     // Navigate to List 'Home'
-    const homeList = '#__next > div.content-app > div > div > div > div:nth-child(2) > div.WCard__CustomCard-sc-19l15c2-0.fjbWYi.ListCard__Container-sc-1hrd3an-6.fOfoyZ > a > div.ListCard__TextContainer-sc-1hrd3an-8.jHcFln'; // Selector for Home List
+    const homeList = '#__next > div.content-app > div > div > div > div:nth-child(2) > div.WCard__CustomCard-sc-19l15c2-0.fjbWYi.ListCard__Container-sc-1hrd3an-6.fOfoyZ'; // Selector for Home List
     await page.click(homeList);
-    await page.waitForNavigation();
+    // await page.waitForNavigation();
     console.log("Navigated to List 'Home' : SUCCESS");
+    await delay(2000);
 
     // Navigate to Add Transaction Page
-    const addButton = '#__next > div.content-app > div.ListDetails__TabsContainer-sc-oas1cn-0.gQpOAv > div > div > div.Fab__FabContainer-sc-ssaszv-2.fzyqca.WTabs__CustomFab-sc-1u78emt-3.FnYQm > div'; // Selector for Add Button
+    const addButton = 'div.Fab__FabContainer-sc-ssaszv-2:nth-child(4) > div:nth-child(1)'; // Selector for Add Button
     await page.click(addButton);
     await page.waitForNavigation();
     console.log("Navigated to 'Add Transaction' Page : SUCCESS");
+    await delay(2000);
 
     // Create Rent Entry
     await page.type('#transaction-calculator','2100', {delay: 100}); // Enter Rent Amount
