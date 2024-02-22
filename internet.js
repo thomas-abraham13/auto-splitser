@@ -1,4 +1,4 @@
-// Script Name: Auto Splitser for Rent
+// Script Name: Auto Splitser for Internet
 
 const puppeteer = require('puppeteer');
 
@@ -15,7 +15,7 @@ const puppeteer = require('puppeteer');
 	    })
     };
 
-    // Navigate to Splitser Lists
+    // Navigate the page to a URL
     await page.goto(`https://app.splitser.com/lists`, { waitUntil: 'networkidle0' });
     console.log("Navigation to splitser.com : SUCCESS");
     await delay(500);
@@ -64,17 +64,17 @@ const puppeteer = require('puppeteer');
     ];
     const nextMonth = months[new Date().getMonth()+1];
 
-    // Create Rent Entry
-    await page.type('#transaction-calculator','<enter-amount>', {delay: 100}); // Enter Rent Amount
+    // Create Internet Entry
+    await page.type('#transaction-calculator','<enter-amount>', {delay: 100}); // Enter Internet Amount
     await page.select('.WMemberDropdown__SelectContainer-sc-1atdj3f-2', 'b8cc017f-70e3-4bee-bb90-a08acde56637'); // Select Thomas in the dropdown
-    await page.type('#transaction-what-for', 'Rent for '+nextMonth, {delay: 100}); // Enter Description
+    await page.type('#transaction-what-for', 'Internet for '+nextMonth, {delay: 100}); // Enter Description
     const splitButton = '#__next > div.content-app > div.CreateUpdate__FullHeight-sc-1qhn6my-0.cjECzb > div.Page__BackgroundContainer-sc-7q8ic7-0.egZtgT > div > div.Participants__ParticipantsContainer-sc-az6kve-4.cVsIox > div.Participants__TitleContainer-sc-az6kve-0.ceWbIg > div.Participants__DesktopVisibleContainer-sc-az6kve-6.dogmGD > div > button > div.WButton__CustomContainer-sc-1o64yp6-0.idKCuO'; // Selector for Split Equally Button
     await page.click(splitButton);
     const botRemove = '#__next > div.content-app > div.CreateUpdate__FullHeight-sc-1qhn6my-0.cjECzb > div.Page__BackgroundContainer-sc-7q8ic7-0.egZtgT > div > div.Participants__ParticipantsContainer-sc-az6kve-4.cVsIox > div.WParticipants__Container-sc-nr3xs5-0.gXRUeD > div:nth-child(1) > div:nth-child(2) > div.WMultiplier__Container-sc-1yu5ib2-0.jWjfFR > div:nth-child(1) > div'; // Selector for Minus Button
     await page.click(botRemove); // Removes the Bot from the Transaction
     const doneButton = '#__next > div.content-app > div.CreateUpdate__FullHeight-sc-1qhn6my-0.cjECzb > div.CreateUpdate__ActionContainer-sc-1qhn6my-2.hREKlw > div.WButton__ButtonContainer-sc-1o64yp6-2.fhcjlX.CreateUpdate__WCustomDoneButton-sc-1qhn6my-5.fOAQnQ > button > div.WButton__CustomContainer-sc-1o64yp6-0.idKCuO'; // Selector for Done Button
     await page.click(doneButton);
-    console.log("Created Entry for Rent : SUCCESS");
+    console.log("Created Entry for Internet : SUCCESS");
     await delay(500);
     console.clear();
 
