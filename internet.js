@@ -62,7 +62,7 @@ const puppeteer = require('puppeteer');
         "November",
         "December",
     ];
-    const nextMonth = months[new Date().getMonth()+1];
+    const nextMonth = months[new Date().getMonth()];
 
     // Create Internet Entry
     await page.type('#transaction-calculator','50', {delay: 100}); // Enter Internet Amount
