@@ -1,10 +1,10 @@
-// Script Name: Auto Splitser for Internet
+// Script Name: Auto Splitser for Water Bill
 
 const puppeteer = require('puppeteer');
 
 (async () => {
     // Launch the browser and open a new blank page
-    const browser = await puppeteer.launch({ headless: true, args: ['--start-maximized','--incognito']});
+    const browser = await puppeteer.launch({ headless: false, args: ['--start-maximized','--incognito']});
     const page = await browser.newPage();
     console.log(await browser.userAgent());
 
@@ -64,10 +64,10 @@ const puppeteer = require('puppeteer');
     ];
     const nextMonth = months[new Date().getMonth()];
 
-    // Create Internet Entry
-    await page.type('#transaction-calculator','<enter amount>', {delay: 100}); // Enter Internet Amount
+    // Create Water Entry
+    await page.type('#transaction-calculator','<enter amount>', {delay: 100}); // Enter Water Bill Amount
     await page.select('.WMemberDropdown__SelectContainer-sc-1atdj3f-2', 'b8cc017f-70e3-4bee-bb90-a08acde56637'); // Select Thomas in the dropdown
-    await page.type('#transaction-what-for', 'Internet for '+nextMonth, {delay: 100}); // Enter Description
+    await page.type('#transaction-what-for', 'Water Bill for '+nextMonth, {delay: 100}); // Enter Description
     const splitButton = '#__next > div.content-app > div.CreateUpdate__FullHeight-sc-1qhn6my-0.cjECzb > div.Page__BackgroundContainer-sc-7q8ic7-0.egZtgT > div > div.Participants__ParticipantsContainer-sc-az6kve-4.cVsIox > div.Participants__TitleContainer-sc-az6kve-0.ceWbIg > div.Participants__DesktopVisibleContainer-sc-az6kve-6.dogmGD > div > button > div.WButton__CustomContainer-sc-1o64yp6-0.idKCuO'; // Selector for Split Equally Button
     await page.click(splitButton);
     const botRemove = '#__next > div.content-app > div.CreateUpdate__FullHeight-sc-1qhn6my-0.cjECzb > div.Page__BackgroundContainer-sc-7q8ic7-0.egZtgT > div > div.Participants__ParticipantsContainer-sc-az6kve-4.cVsIox > div.WParticipants__Container-sc-nr3xs5-0.gXRUeD > div:nth-child(1) > div:nth-child(2) > div.WMultiplier__Container-sc-1yu5ib2-0.jWjfFR > div:nth-child(1) > div'; // Selector for Minus Button

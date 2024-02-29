@@ -62,10 +62,10 @@ const puppeteer = require('puppeteer');
         "November",
         "December",
     ];
-    const nextMonth = months[new Date().getMonth()+1];
+    const nextMonth = months[new Date().getMonth()];
 
     // Create Rent Entry
-    await page.type('#transaction-calculator','<enter-amount>', {delay: 100}); // Enter Rent Amount
+    await page.type('#transaction-calculator','<enter amount>', {delay: 100}); // Enter Rent Amount
     await page.select('.WMemberDropdown__SelectContainer-sc-1atdj3f-2', 'b8cc017f-70e3-4bee-bb90-a08acde56637'); // Select Thomas in the dropdown
     await page.type('#transaction-what-for', 'Rent for '+nextMonth, {delay: 100}); // Enter Description
     const splitButton = '#__next > div.content-app > div.CreateUpdate__FullHeight-sc-1qhn6my-0.cjECzb > div.Page__BackgroundContainer-sc-7q8ic7-0.egZtgT > div > div.Participants__ParticipantsContainer-sc-az6kve-4.cVsIox > div.Participants__TitleContainer-sc-az6kve-0.ceWbIg > div.Participants__DesktopVisibleContainer-sc-az6kve-6.dogmGD > div > button > div.WButton__CustomContainer-sc-1o64yp6-0.idKCuO'; // Selector for Split Equally Button
