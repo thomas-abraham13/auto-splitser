@@ -73,7 +73,7 @@ const puppeteer = require('puppeteer');
     const botRemove = '#__next > div.content-app > div.CreateUpdate__FullHeight-sc-1qhn6my-0.cjECzb > div.Page__BackgroundContainer-sc-7q8ic7-0.egZtgT > div > div.Participants__ParticipantsContainer-sc-az6kve-4.cVsIox > div.WParticipants__Container-sc-nr3xs5-0.gXRUeD > div:nth-child(1) > div:nth-child(2) > div.WMultiplier__Container-sc-1yu5ib2-0.jWjfFR > div:nth-child(1) > div'; // Selector for Minus Button
     await page.click(botRemove); // Removes the Bot from the Transaction
     const doneButton = '#__next > div.content-app > div.CreateUpdate__FullHeight-sc-1qhn6my-0.cjECzb > div.CreateUpdate__ActionContainer-sc-1qhn6my-2.hREKlw > div.WButton__ButtonContainer-sc-1o64yp6-2.fhcjlX.CreateUpdate__WCustomDoneButton-sc-1qhn6my-5.fOAQnQ > button > div.WButton__CustomContainer-sc-1o64yp6-0.idKCuO'; // Selector for Done Button
-    // await page.click(doneButton);
+    await page.click(doneButton);
     console.log("Created Entry for Internet : SUCCESS");
     await delay(500);
     console.clear();
