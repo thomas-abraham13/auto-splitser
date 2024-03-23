@@ -2,9 +2,9 @@
 
 const puppeteer = require('puppeteer');
 
-(async () => {
+async function splitRent() {
     // Launch the browser and open a new blank page
-    const browser = await puppeteer.launch({ headless: true, args: ['--start-maximized','--incognito']});
+    const browser = await puppeteer.launch({ headless: false, args: ['--start-maximized','--incognito']});
     const page = await browser.newPage();
     console.log(await browser.userAgent());
 
@@ -24,9 +24,9 @@ const puppeteer = require('puppeteer');
     await page.setViewport({width: 1080, height: 1024});
 
     // Login to Splitser
-    await page.type('#__next > div.content-app > div > div > form > div:nth-child(1) > div > input', '<enter-email-id>', {delay: 100}); // Enter Email
+    await page.type('#__next > div.content-app > div > div > form > div:nth-child(1) > div > input', 'thomasabraham832+rentbotsplitser@gmail.com', {delay: 100}); // Enter Email
     console.log("Email Entered : SUCCESS");
-    await page.type('#__next > div.content-app > div > div > form > div:nth-child(2) > div > input', '<enter-password>', {delay: 100}); // Enter Password
+    await page.type('#__next > div.content-app > div > div > form > div:nth-child(2) > div > input', 'RKmJVoQQBBcKqJ9oK4FF', {delay: 100}); // Enter Password
     console.log("Password Entered : SUCCESS");
     const loginAction = '#login-form-submit > button > div.WButton__CustomContainer-sc-1o64yp6-0.idKCuO'; // Selector for Login Button
     await page.click(loginAction);
@@ -73,11 +73,13 @@ const puppeteer = require('puppeteer');
     const botRemove = '#__next > div.content-app > div.CreateUpdate__FullHeight-sc-1qhn6my-0.cjECzb > div.Page__BackgroundContainer-sc-7q8ic7-0.egZtgT > div > div.Participants__ParticipantsContainer-sc-az6kve-4.cVsIox > div.WParticipants__Container-sc-nr3xs5-0.gXRUeD > div:nth-child(1) > div:nth-child(2) > div.WMultiplier__Container-sc-1yu5ib2-0.jWjfFR > div:nth-child(1) > div'; // Selector for Minus Button
     await page.click(botRemove); // Removes the Bot from the Transaction
     const doneButton = '#__next > div.content-app > div.CreateUpdate__FullHeight-sc-1qhn6my-0.cjECzb > div.CreateUpdate__ActionContainer-sc-1qhn6my-2.hREKlw > div.WButton__ButtonContainer-sc-1o64yp6-2.fhcjlX.CreateUpdate__WCustomDoneButton-sc-1qhn6my-5.fOAQnQ > button > div.WButton__CustomContainer-sc-1o64yp6-0.idKCuO'; // Selector for Done Button
-    await page.click(doneButton);
+    // await page.click(doneButton);
     console.log("Created Entry for Rent : SUCCESS");
     await delay(500);
     console.clear();
 
     await browser.close();
 
-})();
+}
+
+splitRent();
