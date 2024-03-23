@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/thomas-abraham13/auto-splitser#readme",
   "dependencies": {
+    "prompt-sync": "^4.2.0",
     "puppeteer": "^22.1.0"
   }
 }
