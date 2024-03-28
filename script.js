@@ -26,9 +26,9 @@ async function splitStuff(thing,cost) {
     await page.setViewport({width: 1080, height: 1024});
 
     // Login to Splitser
-    await page.type('#__next > div.content-app > div > div > form > div:nth-child(1) > div > input', '<enter user email>', {delay: 100}); // Enter Email
+    await page.type('#__next > div.content-app > div > div > form > div:nth-child(1) > div > input', BOT_USERNAME, {delay: 100}); // Enter Email
     console.log("Email Entered : SUCCESS");
-    await page.type('#__next > div.content-app > div > div > form > div:nth-child(2) > div > input', '<enter password>', {delay: 100}); // Enter Password
+    await page.type('#__next > div.content-app > div > div > form > div:nth-child(2) > div > input', BOT_PASSWORD, {delay: 100}); // Enter Password
     console.log("Password Entered : SUCCESS");
     await page.click('#login-form-submit > button > div.WButton__CustomContainer-sc-1o64yp6-0.idKCuO'); // Click Selector for Login Button
     await page.waitForNavigation();
