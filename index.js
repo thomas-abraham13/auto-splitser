@@ -3,13 +3,13 @@
 const puppeteer = require('puppeteer');
 const prompt = require("prompt-sync")();
 require('dotenv').config();
-const user = process.env.USERNAME;
-const pass = process.env.PASSWORD;
+const user = process.env.USER_NAME;
+const pass = process.env.PASS_WORD;
 
 module.exports.splitStuff = splitStuff;
 async function splitStuff(thing,cost) {
     // Launch the browser and open a new blank page
-    const browser = await puppeteer.launch({ headless: "new", args: ['--start-maximized','--incognito']});
+    const browser = await puppeteer.launch({ headless: false, args: ['--start-maximized','--incognito']});
     const page = await browser.newPage();
     console.log(await browser.userAgent());
 
