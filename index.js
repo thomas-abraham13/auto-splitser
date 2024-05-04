@@ -9,7 +9,7 @@ const pass = process.env.PASS_WORD;
 module.exports.splitStuff = splitStuff;
 async function splitStuff(thing,cost) {
     // Launch the browser and open a new blank page
-    const browser = await puppeteer.launch({ headless: false, args: ['--start-maximized','--incognito']});
+    const browser = await puppeteer.launch({ headless: "new", args: ['--start-maximized','--incognito']});
     const page = await browser.newPage();
     console.log(await browser.userAgent());
 
